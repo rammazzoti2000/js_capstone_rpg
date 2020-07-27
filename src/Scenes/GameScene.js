@@ -12,9 +12,12 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('button1', button1Img);
     this.load.spritesheet('items', itemsImg, { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('characters', charactersImg, { frameWidth: 32, frameHeight: 32 });
+    this.load.audio('goldSound', ['assets/audio/Pickup.wav']);
   }
 
   create() {
+    const goldPickupAudio = this.sound.add('goldSound', { loop: false, volume: 0.2 });
+
     const button = this.add.image(100, 100, 'button1');
     button.setOrigin(0.5, 0.5);
 
@@ -30,7 +33,11 @@ export default class GameScene extends Phaser.Scene {
     this.player.body.setCollideWorldBounds(true);
 
     this.physics.add.collider(this.player, this.wall);
-    this.physics.add.overlap(this.player, this.chest, () => { console.log('overlap'); });
+    this.physics.add.overlap(this.player, this.chest,
+      (player, chest) => {
+        goldPickupAudio.play();
+        chest.destroy();
+      });
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
