@@ -5,4 +5,13 @@ export default {
   parent: 'phaser-example',
   width: 800,
   height: 600,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: true,
+      gravity: {
+        y: 0,
+      },
+    },
+  },
 };
