@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import Player from '../Classes/Player';
+import Chest from '../Classes/Chest';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -17,14 +19,12 @@ export default class GameScene extends Phaser.Scene {
 
     this.add.sprite(300, 100, 'button1');
 
-    this.chest = this.physics.add.image(300, 300, 'items', 0);
+    this.chest = new Chest(this, 300, 300, 'items', 0);
 
     this.wall = this.physics.add.image(500, 100, 'button1');
     this.wall.setImmovable();
 
-    this.player = this.physics.add.image(32, 32, 'characters', 0);
-    this.player.setScale(2);
-    this.player.body.setCollideWorldBounds(true);
+    this.player = new Player(this, 32, 32, 'characters', 0);
 
     this.physics.add.collider(this.player, this.wall);
     this.physics.add.overlap(this.player, this.chest,
@@ -37,18 +37,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    this.player.setVelocity(0);
-
-    if (this.cursors.left.isDown) {
-      this.player.setVelocityX(-160);
-    } else if (this.cursors.right.isDown) {
-      this.player.setVelocityX(160);
-    }
-
-    if (this.cursors.up.isDown) {
-      this.player.setVelocityY(-160);
-    } else if (this.cursors.down.isDown) {
-      this.player.setVelocityY(160);
-    }
+    this.player.update(this.cursors);
   }
 }
