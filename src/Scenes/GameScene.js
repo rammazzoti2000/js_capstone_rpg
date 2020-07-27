@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import logoImg from '../assets/logo.png';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -7,7 +8,7 @@ export default class GameScene extends Phaser.Scene {
 
   preload() {
     // load images
-    this.load.image('logo', '../assets/logo.png');
+    this.load.image('logo', logoImg);
   }
 
   create() {
