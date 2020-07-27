@@ -20,10 +20,27 @@ export default class GameScene extends Phaser.Scene {
 
     this.add.sprite(300, 100, 'button1');
     this.add.image(300, 300, 'items', 0);
-
     this.physics.add.image(500, 100, 'button1');
 
     this.player = this.physics.add.image(32, 32, 'characters', 0);
     this.player.setScale(2);
+
+    this.cursors = this.input.keyboard.createCursorKeys();
+  }
+
+  update() {
+    this.player.setVelocity(0);
+
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(-160);
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(160);
+    }
+
+    if (this.cursors.up.isDown) {
+      this.player.setVelocityY(-160);
+    } else if (this.cursors.down.isDown) {
+      this.player.setVelocityY(160);
+    }
   }
 }
