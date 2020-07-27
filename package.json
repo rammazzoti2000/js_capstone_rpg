@@ -1,28 +1,45 @@
 {
-  "name": "js_capstone_rpg",
+  "name": "js-capstone-rpg",
   "version": "1.0.0",
-  "description": "This project consist of building a video game using JavaScript and the game engine Phaser.",
-  "main": "index.js",
+  "description": "JS Capstone built with Phaser",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack/prod.js ",
+    "start": "webpack-dev-server --config webpack/base.js --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rammazzoti2000/js_capstone_rpg.git"
+    "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
   },
   "author": "Alexandru Bangau",
   "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "bugs": {
     "url": "https://github.com/rammazzoti2000/js_capstone_rpg/issues"
   },
-  "homepage": "https://github.com/rammazzoti2000/js_capstone_rpg#readme",
+  "homepage": "https://github.com/rammazzoti2000/js_capstone_rpg/blob/master/README.md",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^4.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "raw-loader": "^3.1.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.17.2",
+    "terser-webpack-plugin": "^2.3.7",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "phaser": "^3.24.1"
   }
 }
