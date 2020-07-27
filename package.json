@@ -1,0 +1,28 @@
+{
+  "name": "js_capstone_rpg",
+  "version": "1.0.0",
+  "description": "This project consist of building a video game using JavaScript and the game engine Phaser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rammazzoti2000/js_capstone_rpg.git"
+  },
+  "author": "Alexandru Bangau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rammazzoti2000/js_capstone_rpg/issues"
+  },
+  "homepage": "https://github.com/rammazzoti2000/js_capstone_rpg#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2"
+  }
+}
