@@ -9,6 +9,11 @@ export default class TitleScene extends Phaser.Scene {
   /* eslint-disable no-unused-vars, class-methods-use-this */
 
   create() {
+    // Title
+    this.titleText = this.add.text(this.scale.width / 2, this.scale.height / 7,
+      'Final Warrior', { fontSize: '64px', fill: '#fff' });
+    this.titleText.setOrigin(0.5);
+
     // Game
     this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
     this.centerButton(this.gameButton, 1);
