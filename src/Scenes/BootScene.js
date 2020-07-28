@@ -10,10 +10,23 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
+    this.loadImages();
+    this.loadSpriteSheets();
+    this.loadAudio();
+  }
+
+  loadImages() {
     this.load.image('logo', logoImg);
     this.load.image('button1', button1Img);
+  }
+
+  loadSpriteSheets() {
     this.load.spritesheet('items', itemsImg, { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('characters', charactersImg, { frameWidth: 32, frameHeight: 32 });
+  }
+
+  loadAudio() {
+    this.load.audio('goldSound', ['assets/audio/Pickup.wav']);
   }
 
   create() {
