@@ -14,7 +14,6 @@ export default class MonsterModel {
   }
 
   loseHealth() {
-    console.log(this.health);
     this.health -= 1;
   }
 }

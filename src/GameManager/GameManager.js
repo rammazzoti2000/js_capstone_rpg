@@ -76,6 +76,8 @@ export default class GameManager {
         if (this.monsters[monsterId].health <= 0) {
           this.spawners[this.monsters[monsterId].spawnerId].removeObject(monsterId);
           this.scene.events.emit('monsterRemoved', monsterId);
+        } else {
+          this.scene.events.emit('updateMonsterHealth', monsterId, this.monsters[monsterId].health);
         }
       }
     });
@@ -88,8 +90,6 @@ export default class GameManager {
       spawnerType: SpawnerType.CHEST,
       id: '',
     };
-
-    let spawner;
 
     Object.keys(this.chestLocations).forEach((key) => {
       config.id = `chest-${key}`;
