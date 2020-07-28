@@ -7,6 +7,10 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
+  init() {
+    this.scene.launch('Ui');
+  }
+
   preload() {
     this.load.audio('goldSound', ['assets/audio/Pickup.wav']);
   }
