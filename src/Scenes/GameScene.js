@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../Classes/Player';
 import Chest from '../Classes/Chest';
+import Map from '../Classes/Map';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -60,7 +61,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   addCollisions() {
-    this.physics.add.collider(this.player, this.blockedLayer);
+    this.physics.add.collider(this.player, this.map.blockedLayer);
     this.physics.add.overlap(this.player, this.chests, this.collectChest, null, this);
   }
 
@@ -73,19 +74,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createMap() {
-    this.map = this.make.tilemap({ key: 'map' });
-    this.tiles = this.map.addTilesetImage('background', 'background', 32, 32, 1, 2);
-
-    this.backgroundLayer = this.map.createStaticLayer('background', this.tiles, 0, 0);
-    this.backgroundLayer.setScale(2);
-
-    this.blockedLayer = this.map.createStaticLayer('blocked', this.tiles, 0, 0);
-    this.blockedLayer.setScale(2);
-    this.blockedLayer.setCollisionByExclusion([-1]);
-
-    this.physics.world.bounds.width = this.map.widthInPixels * 2;
-    this.physics.world.bounds.height = this.map.heightInPixels * 2;
-
-    this.cameras.main.setBounds(0, 0, this.map.widthInPixels * 2, this.map.heightInPixels * 2);
+    this.map = new Map(this, 'map', 'background', 'background', 'blocked');
   }
 }
