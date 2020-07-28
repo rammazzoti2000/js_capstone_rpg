@@ -47,6 +47,7 @@ export default class GameScene extends Phaser.Scene {
   createGroups() {
     this.chests = this.physics.add.group();
     this.monsters = this.physics.add.group();
+    this.monsters.runChildUpdate = true;
   }
 
   spawnChest(chestObject) {
@@ -136,18 +137,18 @@ export default class GameScene extends Phaser.Scene {
       this.spawnMonster(monster);
     });
 
-    this.events.on('monsterRemoved', (monsterId) => {
-      this.monsters.getChildren().forEach((monster) => {
-        if (monster.id === monsterId) {
-          monster.makeInactive();
-        }
-      });
-    });
-
     this.events.on('chestRemoved', (chestId) => {
       this.chests.getChildren().forEach((chest) => {
         if (chest.id === chestId) {
           chest.makeInactive();
+        }
+      });
+    });
+
+    this.events.on('monsterRemoved', (monsterId) => {
+      this.monsters.getChildren().forEach((monster) => {
+        if (monster.id === monsterId) {
+          monster.makeInactive();
         }
       });
     });
@@ -162,6 +163,10 @@ export default class GameScene extends Phaser.Scene {
 
     this.events.on('updatePlayerHealth', (playerId, health) => {
       this.player.updateHealth(health);
+    });
+
+    this.events.on('respawnPlayer', (playerObject) => {
+      this.player.respawn(playerObject);
     });
 
     this.gameManager = new GameManager(this, this.map.map.objects);
