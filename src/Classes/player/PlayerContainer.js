@@ -9,7 +9,7 @@ const Direction = {
 };
 
 export default class PlayerContainer extends Phaser.GameObjects.Container {
-  constructor(scene, x, y, key, frame, health, maxHealth, id) {
+  constructor(scene, x, y, key, frame, health, maxHealth, id, attackAudio) {
     super(scene, x, y);
     this.scene = scene;
     this.velocity = 160;
@@ -20,6 +20,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
     this.health = health;
     this.maxHealth = maxHealth;
     this.id = id;
+    this.attackAudio = attackAudio;
 
     this.setSize(64, 64);
     this.scene.physics.world.enable(this);
@@ -94,6 +95,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
     if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.playerAttacking) {
       this.weapon.alpha = 1;
       this.playerAttacking = true;
+      this.attackAudio.play();
       this.scene.time.delayedCall(150, () => {
         this.weapon.alpha = 0;
         this.playerAttacking = false;
