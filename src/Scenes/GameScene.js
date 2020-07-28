@@ -32,13 +32,16 @@ export default class GameScene extends Phaser.Scene {
     this.goldPickupAudio = this.sound.add('goldSound', { loop: false, volume: 0.2 });
   }
 
-  createPlayer(location) {
+  createPlayer(playerObject) {
     this.player = new PlayerContainer(
       this,
-      location[0] * 2,
-      location[1] * 2,
+      playerObject.x * 2,
+      playerObject.y * 2,
       'characters',
       0,
+      playerObject.health,
+      playerObject.maxHealth,
+      playerObject.id,
     );
   }
 
@@ -124,8 +127,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createGameManager() {
-    this.events.on('spawnPlayer', (location) => {
-      this.createPlayer(location);
+    this.events.on('spawnPlayer', (playerObject) => {
+      this.createPlayer(playerObject);
       this.addCollisions();
     });
 
