@@ -33,7 +33,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
     this.weapon.setScale(1.5);
     this.scene.physics.world.enable(this.weapon);
     this.add(this.weapon);
-    this.weapon.alpha = 1;
+    this.weapon.alpha = 0;
   }
 
   update(cursors) {
@@ -59,8 +59,22 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
       this.weapon.setPosition(0, 40);
     }
 
-    if (this.playerAttacking) {
+    if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.playerAttacking) {
+      this.weapon.alpha = 1;
+      this.playerAttacking = true;
+      this.scene.time.delayedCall(150, () => {
+        this.weapon.alpha = 0;
+        this.playerAttacking = false;
+        this.swordHit = false;
+      }, [], this);
+    }
 
+    if (this.playerAttacking) {
+      if (this.weapon.flipX) {
+        this.weapon.angle -= 10;
+      } else {
+        this.weapon.angle += 10;
+      }
     } else {
       if (this.currentDirection === Direction.DOWN) {
         this.weapon.setAngle(-270);
@@ -68,6 +82,11 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
         this.weapon.setAngle(-90);
       } else {
         this.weapon.setAngle(0);
+      }
+
+      this.weapon.flipX = false;
+      if (this.currentDirection === Direction.LEFT) {
+        this.weapon.flipX = true;
       }
     }
   }
