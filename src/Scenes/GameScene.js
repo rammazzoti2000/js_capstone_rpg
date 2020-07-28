@@ -106,10 +106,10 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player.weapon, this.monsters, this.enemyOverlap, null, this);
   }
 
-  enemyOverlap(player, enemy) {
+  enemyOverlap(weapon, enemy) {
     if (this.player.playerAttacking && !this.player.swordHit) {
       this.player.swordHit = true;
-      this.events.emit('monsterAttacked', enemy.id);
+      this.events.emit('monsterAttacked', enemy.id, this.player.id);
     }
   }
 
@@ -158,6 +158,10 @@ export default class GameScene extends Phaser.Scene {
           monster.updateHealth(health);
         }
       });
+    });
+
+    this.events.on('updatePlayerHealth', (playerId, health) => {
+      this.player.updateHealth(health);
     });
 
     this.gameManager = new GameManager(this, this.map.map.objects);

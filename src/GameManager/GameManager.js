@@ -68,6 +68,7 @@ export default class GameManager {
     this.scene.events.on('pickUpChest', (chestId, playerId) => {
       if (this.chests[chestId]) {
         const { gold } = this.chests[chestId];
+
         this.players[playerId].updateGold(gold);
         this.scene.events.emit('updateScore', this.players[playerId].gold);
 
@@ -76,14 +77,22 @@ export default class GameManager {
       }
     });
 
-    this.scene.events.on('monsterAttacked', (monsterId) => {
+    this.scene.events.on('monsterAttacked', (monsterId, playerId) => {
       if (this.monsters[monsterId]) {
+        const { gold, attack } = this.monsters[monsterId];
+
         this.monsters[monsterId].loseHealth();
 
         if (this.monsters[monsterId].health <= 0) {
+          this.players[playerId].updateGold(gold);
+          this.scene.events.emit('updateScore', this.players[playerId].gold);
+
           this.spawners[this.monsters[monsterId].spawnerId].removeObject(monsterId);
           this.scene.events.emit('monsterRemoved', monsterId);
         } else {
+          this.players[playerId].updateHealth(-attack);
+          this.scene.events.emit('updatePlayerHealth', playerId, this.players[playerId].health);
+
           this.scene.events.emit('updateMonsterHealth', monsterId, this.monsters[monsterId].health);
         }
       }

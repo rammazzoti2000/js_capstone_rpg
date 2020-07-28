@@ -15,4 +15,9 @@ export default class PlayerModel {
   updateGold(gold) {
     this.gold += gold;
   }
+
+  updateHealth(health) {
+    this.health += health;
+    console.log(this.health);
+  }
 }
