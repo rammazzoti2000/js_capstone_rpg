@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import Player from '../Classes/Player';
 import Chest from '../Classes/Chest';
 import Map from '../Classes/Map';
+import GameManager from '../GameManager/GameManager';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -20,6 +21,8 @@ export default class GameScene extends Phaser.Scene {
     this.createPlayer();
     this.addCollisions();
     this.createInput();
+
+    this.createGameManager();
   }
 
   update() {
@@ -75,5 +78,10 @@ export default class GameScene extends Phaser.Scene {
 
   createMap() {
     this.map = new Map(this, 'map', 'background', 'background', 'blocked');
+  }
+
+  createGameManager() {
+    this.gameManager = new GameManager(this, this.map.map.objects);
+    this.gameManager.setup();
   }
 }
