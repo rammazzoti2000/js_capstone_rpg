@@ -43,10 +43,12 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
       this.body.setVelocityX(-this.velocity);
       this.currentDirection = Direction.LEFT;
       this.weapon.setPosition(-40, 0);
+      this.player.flipX = false;
     } else if (cursors.right.isDown) {
       this.body.setVelocityX(this.velocity);
       this.currentDirection = Direction.RIGHT;
       this.weapon.setPosition(40, 0);
+      this.player.flipX = true;
     }
 
     if (cursors.up.isDown) {
