@@ -89,6 +89,8 @@ export default class GameManager {
 
           this.spawners[this.monsters[monsterId].spawnerId].removeObject(monsterId);
           this.scene.events.emit('monsterRemoved', monsterId);
+
+          this.players[playerId].updateHealth(2);
         } else {
           this.players[playerId].updateHealth(-attack);
           this.scene.events.emit('updatePlayerHealth', playerId, this.players[playerId].health);

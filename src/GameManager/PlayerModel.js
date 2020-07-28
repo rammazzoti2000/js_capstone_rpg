@@ -18,7 +18,6 @@ export default class PlayerModel {
 
   updateHealth(health) {
     this.health += health;
-    console.log(this.health);
   }
 
   respawn() {
