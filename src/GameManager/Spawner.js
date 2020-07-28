@@ -1,4 +1,5 @@
 import ChestModel from './ChestModel';
+import MonsterModel from './MonsterModel';
 import { SpawnerType, randomNumber } from './utils';
 
 export default class Spawner {
@@ -27,6 +28,8 @@ export default class Spawner {
   spawnObject() {
     if (this.objectType === SpawnerType.CHEST) {
       this.spawnChest();
+    } else if (this.objectType === SpawnerType.MONSTER) {
+      this.spawnMonster();
     }
   }
 
@@ -35,6 +38,21 @@ export default class Spawner {
     const chest = new ChestModel(location[0], location[1], randomNumber(10, 20), this.id);
     this.objectsCreated.push(chest);
     this.addObject(chest.id, chest);
+  }
+
+  spawnMonster() {
+    const location = this.pickRandomLocation();
+    const monster = new MonsterModel(
+      location[0],
+      location[1],
+      randomNumber(10, 20),
+      this.id,
+      randomNumber(0, 20),
+      randomNumber(3, 5),
+      1,
+    );
+    this.objectsCreated.push(monster);
+    this.addObject(monster.id, monster);
   }
 
   pickRandomLocation() {
