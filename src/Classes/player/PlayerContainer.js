@@ -1,18 +1,21 @@
 import Phaser from 'phaser';
+import Player from './Player';
 
-export default class Player extends Phaser.Physics.Arcade.Image {
+export default class PlayerContainer extends Phaser.GameObjects.Container {
   constructor(scene, x, y, key, frame) {
-    super(scene, x, y, key, frame, 'Player');
+    super(scene, x, y);
     this.scene = scene;
     this.velocity = 160;
 
+    this.setSize(64, 64);
     this.scene.physics.world.enable(this);
-    this.setImmovable(false);
 
-    this.setScale(2);
-    this.setCollideWorldBounds(true);
+    this.body.setCollideWorldBounds(true);
     this.scene.add.existing(this);
     this.scene.cameras.main.startFollow(this);
+
+    this.player = new Player(this.scene, 0, 0, key, frame);
+    this.add(this.player);
   }
 
   update(cursors) {

@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Player from '../Classes/Player';
+import PlayerContainer from '../Classes/player/PlayerContainer';
 import Chest from '../Classes/Chest';
 import Monster from '../Classes/Monster';
 import Map from '../Classes/Map';
@@ -33,7 +33,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createPlayer(location) {
-    this.player = new Player(
+    this.player = new PlayerContainer(
       this,
       location[0] * 2,
       location[1] * 2,
