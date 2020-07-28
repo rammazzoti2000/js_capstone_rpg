@@ -16,7 +16,6 @@ export default class GameScene extends Phaser.Scene {
     this.createMap();
     this.createAudio();
     this.createChests();
-    this.createWalls();
     this.createPlayer();
     this.addCollisions();
     this.createInput();
@@ -56,11 +55,6 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
-  createWalls() {
-    this.wall = this.physics.add.image(500, 100, 'button1');
-    this.wall.setImmovable();
-  }
-
   createInput() {
     this.cursors = this.input.keyboard.createCursorKeys();
   }
@@ -81,7 +75,6 @@ export default class GameScene extends Phaser.Scene {
   createMap() {
     this.map = this.make.tilemap({ key: 'map' });
     this.tiles = this.map.addTilesetImage('background', 'background', 32, 32, 1, 2);
-
 
     this.backgroundLayer = this.map.createStaticLayer('background', this.tiles, 0, 0);
     this.backgroundLayer.setScale(2);
