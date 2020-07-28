@@ -5,6 +5,10 @@ export default class UiScene extends Phaser.Scene {
     super('Ui');
   }
 
+  init() {
+    this.gameScene = this.scene.get('Game');
+  }
+
   create() {
     this.setupUiElements();
     this.setupEvents();
@@ -16,6 +20,8 @@ export default class UiScene extends Phaser.Scene {
   }
 
   setupEvents() {
-
+    this.gameScene.events.on('updateScore', (score) => {
+      this.scoreText.setText(`Coins: ${score}`);
+    });
   }
 }
