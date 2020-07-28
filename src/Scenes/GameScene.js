@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../Classes/Player';
 import Chest from '../Classes/Chest';
+import Monster from '../Classes/Monster';
 import Map from '../Classes/Map';
 import GameManager from '../GameManager/GameManager';
 
@@ -32,17 +33,32 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createPlayer(location) {
-    this.player = new Player(this, location[0] * 2, location[1] * 2, 'characters', 0);
+    this.player = new Player(
+      this,
+      location[0] * 2,
+      location[1] * 2,
+      'characters',
+      0,
+    );
   }
 
   createGroups() {
     this.chests = this.physics.add.group();
+    this.monsters = this.physics.add.group();
   }
 
   spawnChest(chestObject) {
-    const chest = this.chests.getFirstDead();
+    let chest = this.chests.getFirstDead();
     if (!chest) {
-      const chest = new Chest(this, chestObject.x * 2, chestObject.y * 2, 'items', 0, chestObject.gold, chestObject.id);
+      chest = new Chest(
+        this,
+        chestObject.x * 2,
+        chestObject.y * 2,
+        'items',
+        0,
+        chestObject.gold,
+        chestObject.id,
+      );
       this.chests.add(chest);
     } else {
       chest.coins = chestObject.gold;
@@ -53,7 +69,27 @@ export default class GameScene extends Phaser.Scene {
   }
 
   spawnMonster(monsterObject) {
-    console.log(monsterObject);
+    let monster = this.monsters.getFirstDead();
+    if (!monster) {
+      monster = new Monster(
+        this,
+        monsterObject.x * 2,
+        monsterObject.y * 2,
+        'monsters',
+        monsterObject.frame,
+        monsterObject.id,
+        monsterObject.health,
+        monsterObject.maxHealth,
+      );
+      this.monsters.add(monster);
+    } else {
+      monster.id = monsterObject.id;
+      monster.health = monsterObject.health;
+      monster.maxHealth = monsterObject.maxHealth;
+      monster.setTexture('monsters', monsterObject.frame);
+      monster.setPosition(monsterObject.x * 2, monsterObject.y * 2);
+      monster.makeActive();
+    }
   }
 
   createInput() {
@@ -90,7 +126,6 @@ export default class GameScene extends Phaser.Scene {
     this.events.on('monsterSpawned', (monster) => {
       this.spawnMonster(monster);
     });
-
 
     this.gameManager = new GameManager(this, this.map.map.objects);
     this.gameManager.setup();

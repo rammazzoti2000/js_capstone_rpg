@@ -3,6 +3,7 @@ import logoImg from '../../assets/zenva_logo.png';
 import button1Img from '../../assets/images/ui/blue_button01.png';
 import itemsImg from '../../assets/images/items.png';
 import charactersImg from '../../assets/images/characters.png';
+import monstersImg from '../../assets/images/monsters.png';
 import backgroundImg from '../../assets/level/background-extruded.png';
 
 export default class BootScene extends Phaser.Scene {
@@ -26,6 +27,7 @@ export default class BootScene extends Phaser.Scene {
   loadSpriteSheets() {
     this.load.spritesheet('items', itemsImg, { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('characters', charactersImg, { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('monsters', monstersImg, { frameWidth: 32, frameHeight: 32 });
   }
 
   loadAudio() {
