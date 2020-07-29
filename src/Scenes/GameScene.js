@@ -81,8 +81,8 @@ export default class GameScene extends Phaser.Scene {
     if (!monster) {
       monster = new Monster(
         this,
-        monsterObject.x * 2,
-        monsterObject.y * 2,
+        monsterObject.x,
+        monsterObject.y,
         'monsters',
         monsterObject.frame,
         monsterObject.id,
@@ -95,7 +95,7 @@ export default class GameScene extends Phaser.Scene {
       monster.health = monsterObject.health;
       monster.maxHealth = monsterObject.maxHealth;
       monster.setTexture('monsters', monsterObject.frame);
-      monster.setPosition(monsterObject.x * 2, monsterObject.y * 2);
+      monster.setPosition(monsterObject.x, monsterObject.y);
       monster.makeActive();
     }
   }
@@ -164,6 +164,16 @@ export default class GameScene extends Phaser.Scene {
         if (monster.id === monsterId) {
           monster.updateHealth(health);
         }
+      });
+    });
+
+    this.events.on('monsterMovement', (monsters) => {
+      this.monsters.getChildren().forEach((monster) => {
+        Object.keys(monsters).forEach((monsterId) => {
+          if (monster.id === monsterId) {
+            this.physics.moveToObject(monster, monsters[monsterId], 40);
+          }
+        });
       });
     });
 
