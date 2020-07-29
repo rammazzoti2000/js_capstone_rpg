@@ -8,7 +8,7 @@ export default {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      debug: false,
       gravity: {
         y: 0,
       },
@@ -16,4 +16,7 @@ export default {
   },
   pixelArt: true,
   roundPixels: true,
+  dom: {
+    createContainer: true,
+  },
 };
