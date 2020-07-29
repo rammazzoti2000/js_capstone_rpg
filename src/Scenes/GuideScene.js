@@ -11,9 +11,21 @@ export default class GuideScene extends Phaser.Scene {
 
   create() {
     this.text = this.add.text(340, 100, 'Guide', { fontSize: 40 });
-    this.text = this.add.text(330, 200, 'Key Controls', { fontSize: 20 });
+    this.textKeys = this.add.text(330, 175, 'Key Controls', { fontSize: 20 });
 
     this.menuButton = new Button(this, 400, 500, 'blueButton1', 'blueButton2', 'Menu', 'Title');
+    this.upKey = new Button(this, 475, 260, 'upKey', 'upKey0');
+    this.downKey = new Button(this, 475, 310, 'downKey', 'downKey0');
+    this.leftKey = new Button(this, 425, 285, 'leftKey', 'leftKey0');
+    this.rightKey = new Button(this, 525, 285, 'rightKey', 'rightKey0');
+    this.spaceKey = new Button(this, 325, 285, 'spaceKey', 'spaceKey0');
+
+    this.textInstructions = this.add.text(210, 370,
+      'Use the direction keys to navigate'
+      + '\nUse the space key to attack monsters',
+      { fontSize: 20 },
+    );
+
   //   console.log(this);
   //   // const image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'sprBg0');
   //   // const scaleX = this.cameras.main.width / image.width;
