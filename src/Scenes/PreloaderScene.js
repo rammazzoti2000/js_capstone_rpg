@@ -111,7 +111,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('leftKey0', leftKeyImg0);
     this.load.image('rightKey0', rightKeyImg0);
     this.load.image('spaceKey0', spaceKeyImg0);
-    this.load.audio('bgMusic', ['assets/TownTheme.mp3']);
+    this.load.audio('bgMusic', ['assets/KungFuFighting.mp3']);
   }
 
   ready() {
