@@ -12,10 +12,22 @@ export default class PlayerModel {
     [this.x, this.y] = location;
   }
 
+  // init() {
+  //   this.model = this.sys.game.globals.model;
+  // }
+
   updateGold(gold) {
     this.gold += gold;
     return gold;
   }
+
+  // updateGold(gold) {
+  //   // this.gold += gold;
+  //   // return gold;
+  //   let { score } = this.sys.game.globals.model;
+  //   score += 10;
+  //   this.sys.game.globals.model.score = score;
+  // }
 
   updateHealth(health) {
     this.health += health;

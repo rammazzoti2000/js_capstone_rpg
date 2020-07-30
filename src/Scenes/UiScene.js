@@ -7,6 +7,7 @@ export default class UiScene extends Phaser.Scene {
 
   init() {
     this.gameScene = this.scene.get('Game');
+    this.model = this.sys.game.globals.model;
   }
 
   create() {
@@ -17,11 +18,14 @@ export default class UiScene extends Phaser.Scene {
   setupUiElements() {
     this.scoreText = this.add.text(35, 8, 'Coins: 0', { fontSize: '16px', fill: '#fff' });
     this.coinIcon = this.add.image(15, 15, 'items', 3);
+    // console.log("Coins: " + this.scoreText.text);
   }
 
   setupEvents() {
     this.gameScene.events.on('updateScore', (score) => {
       this.scoreText.setText(`Coins: ${score}`);
+      this.sys.game.globals.model.score = score;
+      console.log('Mama ' + this.sys.game.globals.model.score);
     });
   }
 }

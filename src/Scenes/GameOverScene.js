@@ -10,6 +10,7 @@ export default class GameOverScene extends Phaser.Scene {
 
   init() {
     this.model = this.sys.game.globals.model;
+    this.gameScene = this.scene.get('Game');
   }
 
   preload() {
@@ -19,6 +20,8 @@ export default class GameOverScene extends Phaser.Scene {
 
   create() {
     const user = this.sys.game.globals.model.userName;
+
+    // this.getScore();
 
     this.add.image(this.game.config.width * 0.5, 240, 'sprImg').setScale(0.35);
 
@@ -34,6 +37,6 @@ export default class GameOverScene extends Phaser.Scene {
     postScore(this.model.userName, this.model.score);
 
     this.gameButton = new Button(this, 400, (config.height / 2) + 170,
-      'blueButton1', 'blueButton2', 'Submit', 'DisplayScore');
+      'blueButton1', 'blueButton2', 'Submit', 'Score');
   }
 }

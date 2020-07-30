@@ -17,6 +17,10 @@ export default class GameManager {
     this.monsterLocations = {};
   }
 
+  init() {
+    this.model = this.sys.game.globals.model;
+  }
+
   setup() {
     this.parseMapData();
     this.setupEventListener();
@@ -68,12 +72,12 @@ export default class GameManager {
     this.scene.events.on('pickUpChest', (chestId, playerId) => {
       if (this.chests[chestId]) {
         const { gold } = this.chests[chestId];
-
         this.players[playerId].updateGold(gold);
         this.scene.events.emit('updateScore', this.players[playerId].gold);
 
         this.spawners[this.chests[chestId].spawnerId].removeObject(chestId);
         this.scene.events.emit('chestRemoved', chestId);
+        console.log(gold);
       }
     });
 
@@ -99,8 +103,8 @@ export default class GameManager {
 
           /* eslint-disable radix */
           if (this.players[playerId].health <= 0) {
-            this.players[playerId].updateGold(parseInt(-this.players[playerId].gold / 2), 10);
-            this.scene.events.emit('updateScore', this.players[playerId].gold);
+            // this.players[playerId].updateGold(parseInt(-this.players[playerId].gold / 2), 10);
+            // this.scene.events.emit('updateScore', this.players[playerId].gold);
 
             this.players[playerId].respawn();
             this.scene.events.emit('respawnPlayer', this.players[playerId]);
