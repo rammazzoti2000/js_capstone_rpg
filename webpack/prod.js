@@ -20,6 +20,11 @@ module.exports = merge(base, {
         },
       },
       {
+        test: /\.json$/,
+        type: 'javascript/auto',
+        loader: 'custom-json-loader',
+      },
+      {
         test: [/\.vert$/, /\.frag$/],
         use: 'raw-loader',
       },
