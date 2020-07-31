@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,19 +16,11 @@ module.exports = {
         },
       },
       {
-        test: /\.json$/i,
-        loader: 'json-loader',
-        options: {
-          esModule: false,
-        },
-        type: 'javascript/auto',
-      },
-      {
         test: [/\.vert$/, /\.frag$/],
         use: 'raw-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|svg|xml)$/i,
+        test: /\.(gif|png|jpe?g|svg|xml|wav)$/i,
         use: 'file-loader',
       },
     ],
