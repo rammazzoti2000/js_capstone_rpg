@@ -10,6 +10,25 @@ module.exports = merge(base, {
   output: {
     filename: 'bundle.min.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: [/\.vert$/, /\.frag$/],
+        use: 'raw-loader',
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg|xml)$/i,
+        use: 'file-loader',
+      },
+    ],
+  },
   devtool: false,
   performance: {
     maxEntrypointSize: 900000,
