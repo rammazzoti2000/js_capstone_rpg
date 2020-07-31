@@ -18,16 +18,12 @@ module.exports = {
         },
       },
       {
+        test: /\.json5$/i,
+        loader: 'json5-loader',
+        options: {
+          esModule: false,
+        },
         type: 'javascript/auto',
-        test: /\.json$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: './plugin-config/[name].[ext]',
-            },
-          },
-        ],
       },
       {
         test: [/\.vert$/, /\.frag$/],

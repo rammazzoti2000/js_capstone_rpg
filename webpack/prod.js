@@ -24,16 +24,12 @@ module.exports = merge(base, {
         },
       },
       {
+        test: /\.json5$/i,
+        loader: 'json5-loader',
+        options: {
+          esModule: false,
+        },
         type: 'javascript/auto',
-        test: /\.json$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: './plugin-config/[name].[ext]',
-            },
-          },
-        ],
       },
       {
         test: [/\.vert$/, /\.frag$/],
@@ -45,18 +41,18 @@ module.exports = merge(base, {
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin({
-      root: path.resolve(__dirname, '../'),
-    }),
-    new webpack.DefinePlugin({
-      CANVAS_RENDERER: JSON.stringify(true),
-      WEBGL_RENDERER: JSON.stringify(true),
-    }),
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
-  ],
+  // plugins: [
+  //   new CleanWebpackPlugin({
+  //     root: path.resolve(__dirname, '../'),
+  //   }),
+  //   new webpack.DefinePlugin({
+  //     CANVAS_RENDERER: JSON.stringify(true),
+  //     WEBGL_RENDERER: JSON.stringify(true),
+  //   }),
+  //   new HtmlWebpackPlugin({
+  //     template: './index.html',
+  //   }),
+  // ],
   performance: {
     maxEntrypointSize: 900000,
     maxAssetSize: 900000,

@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import mapJSON from '../../assets/level/large_level.json5';
 import logoImg from '../../assets/zenva_logo.png';
 import button1Img from '../../assets/images/ui/blue_button01.png';
 import itemsImg from '../../assets/images/items.png';
@@ -39,7 +40,7 @@ export default class BootScene extends Phaser.Scene {
   }
 
   loadTileMap() {
-    this.load.tilemapTiledJSON('map', 'assets/level/large_level.json');
+    this.load.tilemapTiledJSON('map', mapJSON);
   }
 
   create() {
