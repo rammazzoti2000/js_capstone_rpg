@@ -3,6 +3,9 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const base = require('./base');
 
 module.exports = merge(base, {
@@ -10,6 +13,7 @@ module.exports = merge(base, {
   output: {
     filename: 'bundle.min.js',
   },
+  devtool: false,
   module: {
     rules: [
       {
@@ -41,7 +45,18 @@ module.exports = merge(base, {
       },
     ],
   },
-  devtool: false,
+  plugins: [
+    new CleanWebpackPlugin({
+      root: path.resolve(__dirname, '../'),
+    }),
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(true),
+    }),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+    }),
+  ],
   performance: {
     maxEntrypointSize: 900000,
     maxAssetSize: 900000,

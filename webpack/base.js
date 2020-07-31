@@ -18,6 +18,18 @@ module.exports = {
         },
       },
       {
+        type: 'javascript/auto',
+        test: /\.json$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './plugin-config/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
         test: [/\.vert$/, /\.frag$/],
         use: 'raw-loader',
       },
