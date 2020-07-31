@@ -11,7 +11,9 @@ const base = require('./base');
 module.exports = merge(base, {
   mode: 'production',
   output: {
+    // path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.min.js',
+    // publicPath: './',
   },
   devtool: false,
   module: {
@@ -23,14 +25,14 @@ module.exports = merge(base, {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.json5$/i,
-        loader: 'json5-loader',
-        options: {
-          esModule: false,
-        },
-        type: 'javascript/auto',
-      },
+      // {
+      //   test: /\.json$/i,
+      //   loader: 'json-loader',
+      //   options: {
+      //     esModule: false,
+      //   },
+      //   type: 'javascript/auto',
+      // },
       {
         test: [/\.vert$/, /\.frag$/],
         use: 'raw-loader',

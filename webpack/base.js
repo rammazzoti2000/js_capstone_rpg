@@ -18,8 +18,8 @@ module.exports = {
         },
       },
       {
-        test: /\.json5$/i,
-        loader: 'json5-loader',
+        test: /\.json$/i,
+        loader: 'json-loader',
         options: {
           esModule: false,
         },
