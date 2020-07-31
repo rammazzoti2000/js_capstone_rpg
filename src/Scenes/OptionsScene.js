@@ -6,8 +6,6 @@ export default class OptionsScene extends Phaser.Scene {
     super('Options');
   }
 
-  /* eslint-disable no-unused-vars */
-
   create() {
     this.model = this.sys.game.globals.model;
 
@@ -21,7 +19,6 @@ export default class OptionsScene extends Phaser.Scene {
     this.musicButton.setInteractive();
     this.soundButton.setInteractive();
 
-    /* eslint-disable prefer-arrow-callback */
     this.musicButton.on('pointerdown', () => {
       this.model.musicOn = !this.model.musicOn;
       this.updateAudio();

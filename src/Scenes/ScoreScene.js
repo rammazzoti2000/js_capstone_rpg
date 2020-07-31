@@ -1,8 +1,5 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
-/* eslint no-undef: "error" */
-/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["preload"] }]  */
-/*  eslint class-methods-use-this: ["error", { "exceptMethods": ["postScore"] }]  */
 import { getScores } from '../Objects/apiScore';
 
 export default class DisplayScoreScene extends Phaser.Scene {
@@ -33,12 +30,8 @@ export default class DisplayScoreScene extends Phaser.Scene {
       }
     });
 
-    this.menuButton = new Button(this, 400, 500, 'blueButton1', 'blueButton2', 'Menu', 'Guide');
+    this.menuButton = new Button(this, 400, 500, 'blueButton1', 'blueButton2', 'Restart', 'Guide');
 
-    // const style = 'width: 150px; height: 40px; border-radius: 30px; border: 0; font: 30px sans-serif; color: black;';
-    // const btn = this.add.dom(650, 490, 'button', style, 'Guide');
-    // btn.addListener('click');
-    //
     this.menuButton.on('click', () => {
       this.model = this.sys.game.globals.model;
       this.model.score = 0;

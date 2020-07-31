@@ -77,7 +77,6 @@ export default class GameManager {
 
         this.spawners[this.chests[chestId].spawnerId].removeObject(chestId);
         this.scene.events.emit('chestRemoved', chestId);
-        console.log(gold);
       }
     });
 

@@ -64,7 +64,6 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
   respawn() {
     this.scene.time.addEvent({
       callback() {
-        // this.scene.scene.stop('Ui');
         this.scene.scene.start('GameOver');
       },
       callbackScope: this,

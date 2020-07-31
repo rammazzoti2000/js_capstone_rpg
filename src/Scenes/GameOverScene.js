@@ -21,8 +21,6 @@ export default class GameOverScene extends Phaser.Scene {
   create() {
     const user = this.sys.game.globals.model.userName;
 
-    // this.getScore();
-
     this.add.image(this.game.config.width * 0.5, 240, 'sprImg').setScale(0.35);
 
     this.score = this.add.text(230, 30,

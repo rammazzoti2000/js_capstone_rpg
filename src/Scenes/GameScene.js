@@ -28,11 +28,11 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createAudio() {
-    this.goldPickupAudio = this.sound.add('goldSound', { loop: false, volume: 0.3 });
-    this.playerAttackAudio = this.sound.add('playerAttack', { loop: false, volume: 0.1 });
-    this.playerDamageAudio = this.sound.add('playerDamage', { loop: false, volume: 0.2 });
-    this.playerDeathAudio = this.sound.add('playerDeath', { loop: false, volume: 0.3 });
-    this.monsterDeathAudio = this.sound.add('enemyDeath', { loop: false, volume: 0.2 });
+    this.goldPickupAudio = this.sound.add('goldSound', { loop: false, volume: 0.5 });
+    this.playerAttackAudio = this.sound.add('playerAttack', { loop: false, volume: 0.2 });
+    this.playerDamageAudio = this.sound.add('playerDamage', { loop: false, volume: 0.3 });
+    this.playerDeathAudio = this.sound.add('playerDeath', { loop: false, volume: 0.5 });
+    this.monsterDeathAudio = this.sound.add('enemyDeath', { loop: false, volume: 0.3 });
   }
 
   createPlayer(playerObject) {

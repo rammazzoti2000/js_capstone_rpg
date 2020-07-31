@@ -7,7 +7,6 @@ export default class GuideScene extends Phaser.Scene {
   }
 
   create() {
-    // this.text = this.add.text(340, 20, 'Guide', { fontSize: 40 });
     this.textKeys = this.add.text(325, 100, 'Key Controls', { fontSize: 20 });
 
     this.upKey = new Button(this, 460, 160, 'upKey', 'upKey0');
