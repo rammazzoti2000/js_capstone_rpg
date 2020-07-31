@@ -1,19 +1,19 @@
 import Phaser from 'phaser';
-import blueButton1Img from '../../assets/ui/blue_button02.png';
-import blueButton2Img from '../../assets/ui/blue_button03.png';
-import phaserLogoImg from '../../assets/logo.png';
-import boxImg from '../../assets/ui/grey_box.png';
-import checkedBoxImg from '../../assets/ui/blue_boxCheckmark.png';
-import upKeyImg from '../../assets/commands/KeyboardButtonsDir_up.png';
-import downKeyImg from '../../assets/commands/KeyboardButtonsDir_down.png';
-import leftKeyImg from '../../assets/commands/KeyboardButtonsDir_left.png';
-import rightKeyImg from '../../assets/commands/KeyboardButtonsDir_right.png';
-import spaceKeyImg from '../../assets/commands/OnscreenKeyboardButtonsSpace.png';
-import upKeyImg0 from '../../assets/commands/KeyboardButtonsDir_up0.png';
-import downKeyImg0 from '../../assets/commands/KeyboardButtonsDir_down0.png';
-import leftKeyImg0 from '../../assets/commands/KeyboardButtonsDir_left0.png';
-import rightKeyImg0 from '../../assets/commands/KeyboardButtonsDir_right0.png';
-import spaceKeyImg0 from '../../assets/commands/OnscreenKeyboardButtonsSpace0.png';
+// import blueButton1Img from '../../assets/ui/blue_button02.png';
+// import blueButton2Img from '../../assets/ui/blue_button03.png';
+// import phaserLogoImg from '../../assets/logo.png';
+// import boxImg from '../../assets/ui/grey_box.png';
+// import checkedBoxImg from '../../assets/ui/blue_boxCheckmark.png';
+// import upKeyImg from '../../assets/commands/KeyboardButtonsDir_up.png';
+// import downKeyImg from '../../assets/commands/KeyboardButtonsDir_down.png';
+// import leftKeyImg from '../../assets/commands/KeyboardButtonsDir_left.png';
+// import rightKeyImg from '../../assets/commands/KeyboardButtonsDir_right.png';
+// import spaceKeyImg from '../../assets/commands/OnscreenKeyboardButtonsSpace.png';
+// import upKeyImg0 from '../../assets/commands/KeyboardButtonsDir_up0.png';
+// import downKeyImg0 from '../../assets/commands/KeyboardButtonsDir_down0.png';
+// import leftKeyImg0 from '../../assets/commands/KeyboardButtonsDir_left0.png';
+// import rightKeyImg0 from '../../assets/commands/KeyboardButtonsDir_right0.png';
+// import spaceKeyImg0 from '../../assets/commands/OnscreenKeyboardButtonsSpace0.png';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -96,21 +96,21 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // load assets needed in our game
-    this.load.image('blueButton1', blueButton1Img);
-    this.load.image('blueButton2', blueButton2Img);
-    this.load.image('phaserLogo', phaserLogoImg);
-    this.load.image('box', boxImg);
-    this.load.image('checkedBox', checkedBoxImg);
-    this.load.image('upKey', upKeyImg);
-    this.load.image('downKey', downKeyImg);
-    this.load.image('leftKey', leftKeyImg);
-    this.load.image('rightKey', rightKeyImg);
-    this.load.image('spaceKey', spaceKeyImg);
-    this.load.image('upKey0', upKeyImg0);
-    this.load.image('downKey0', downKeyImg0);
-    this.load.image('leftKey0', leftKeyImg0);
-    this.load.image('rightKey0', rightKeyImg0);
-    this.load.image('spaceKey0', spaceKeyImg0);
+    this.load.image('blueButton1', 'assets/ui/blue_button02.png');
+    this.load.image('blueButton2', 'assets/ui/blue_button03.png');
+    this.load.image('phaserLogo', 'assets/logo.png');
+    this.load.image('box', 'assets/ui/grey_box.png');
+    this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
+    this.load.image('upKey', 'assets/commands/KeyboardButtonsDir_up.png');
+    this.load.image('downKey', 'assets/commands/KeyboardButtonsDir_down.png');
+    this.load.image('leftKey', 'assets/commands/KeyboardButtonsDir_left.png');
+    this.load.image('rightKey', 'assets/commands/KeyboardButtonsDir_right.png');
+    this.load.image('spaceKey', 'assets/commands/OnscreenKeyboardButtonsSpace.png');
+    this.load.image('upKey0', 'assets/commands/KeyboardButtonsDir_up0.png');
+    this.load.image('downKey0', 'assets/commands/KeyboardButtonsDir_down0.png');
+    this.load.image('leftKey0', 'assets/commands/KeyboardButtonsDir_left0.png');
+    this.load.image('rightKey0', 'assets/commands/KeyboardButtonsDir_right0.png');
+    this.load.image('spaceKey0', 'assets/commands/OnscreenKeyboardButtonsSpace0.png');
     this.load.audio('bgMusic', ['assets/KungFuFighting.mp3']);
   }
 

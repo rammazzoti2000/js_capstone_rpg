@@ -1,11 +1,11 @@
 import Phaser from 'phaser';
 // import mapJSON from '../../assets/level/large_level1.json';
-import logoImg from '../../assets/zenva_logo.png';
-import button1Img from '../../assets/images/ui/blue_button01.png';
-import itemsImg from '../../assets/images/items.png';
-import charactersImg from '../../assets/images/characters.png';
-import monstersImg from '../../assets/images/monsters.png';
-import backgroundImg from '../../assets/level/background-extruded.png';
+// import logoImg from '../../assets/zenva_logo.png';
+// import button1Img from '../../assets/images/ui/blue_button01.png';
+// import itemsImg from '../../assets/images/items.png';
+// import charactersImg from '../../assets/images/characters.png';
+// import monstersImg from '../../assets/images/monsters.png';
+// import backgroundImg from '../../assets/level/background-extruded.png';
 
 const mapJSON = require('../../assets/level/large_level1.json');
 
@@ -22,15 +22,15 @@ export default class BootScene extends Phaser.Scene {
   }
 
   loadImages() {
-    this.load.image('logo', logoImg);
-    this.load.image('button1', button1Img);
-    this.load.image('background', backgroundImg);
+    this.load.image('logo', 'assets/zenva_logo.png');
+    this.load.image('button1', 'assets/images/ui/blue_button01.png');
+    this.load.image('background', 'assets/level/background-extruded.png');
   }
 
   loadSpriteSheets() {
-    this.load.spritesheet('items', itemsImg, { frameWidth: 32, frameHeight: 32 });
-    this.load.spritesheet('characters', charactersImg, { frameWidth: 32, frameHeight: 32 });
-    this.load.spritesheet('monsters', monstersImg, { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('items', 'assets/images/items.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('characters', 'assets/images/characters.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('monsters', 'assets/images/monsters.png', { frameWidth: 32, frameHeight: 32 });
   }
 
   loadAudio() {
