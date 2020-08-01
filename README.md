@@ -69,7 +69,7 @@ As a bonus though, for each monster killed the player will have back some gold a
 
 ### Design Process
 
-Fatal Warrior was designed on an initial, quite complex, webpack configuration specific for Phaser3. This allowed me to investigate Phaser and its tools from a specific perspective. The entire map was built with Tiled on a 32 x 32 collection of squares. The map then has been exported as a json file and used that for placing chests, and monsters at random positions.
+Fatal Warrior was designed on an initial, quite complex, webpack configuration specific for Phaser3. This allowed me to investigate Phaser and its tools from a specific perspective. The entire map was built with Tiled on a 32 x 32 collection of squares. The map then has been exported as a json file and used for placing chests, and monsters at random positions.
 
 The player has a set velocity and can move across the map by using the arrow keys. Each time the player dies it will be spawned at a different random position to make the game more interesting. The monsters and the chests will be as well randomly generated and spawned on the map. Each spawned element has a random unique id used to interact with the user. The unique id is generated with the help of uuid npm package.
 
@@ -100,8 +100,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.7.0
-Rails: 5.2.4
+ * [Node.js](https://nodejs.org/) is required to install dependencies and run scripts via npm.
+ * A modern browser
 
 ### Clone
 * [download](https://github.com/rammazzoti2000/js_capstone_rpg/archive/development.zip) or clone this repo:
@@ -123,9 +123,7 @@ $ npm install
 
 Start the local webserver:
 
-```
-$ npm start > will open a local webserver at http://localhost:8080/ directly in your default browser with the game ready to be played
-```
+```$ npm start``` > will open a local webserver at http://localhost:8080/ directly in your default browser with the game ready to be played
 
   ## Automated Test
 
@@ -161,10 +159,10 @@ Give a :star: if you like this project!
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Sound Theme]() - Everybody was kung fu fighting by Carl Douglas
-* [SFX effects]() - OpenArt website
-* [Phaser3]() & [Phaser Template]()
-* [Sprites and Tiles] - ale[x360]
+* [Sound Theme](https://www.youtube.com/watch?v=jhUkGIsKvn0) - Everybody was kung fu fighting by Carl Douglas
+* [SFX effects](https://opengameart.org/) - OpenGameArt website
+* [Phaser3](https://phaser.io/phaser3) & [Phaser Template](https://github.com/rammazzoti2000/phaser_toolbox)
+* [Sprites and Tiles](https://github.com/rammazzoti2000/) - ale[x360]
 * [Microverse](https://www.microverse.org/)
 
 
