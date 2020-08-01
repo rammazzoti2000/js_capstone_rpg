@@ -85,7 +85,7 @@ This project was built using these technologies.
 
 <!-- Live Demo -->
 ## Walkthrough Video and Deployment (GitHub-Pages)
-https://www.loom.com/share/291f99a17d0542e09a48fd3f7c0e83cc
+https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 ##
 * Live Demo Link --> App Deployed with GitHub-Pages: [Final Warrior](https://rammazzoti2000.github.io/js_capstone_rpg/) :point_left:
 
@@ -129,7 +129,6 @@ Start the local webserver:
 
 * Run the command and see the output:
 ```$ npm run test```
-![Jest](app/assets/images/rspec.png)
 
 
  ## Potential future features
