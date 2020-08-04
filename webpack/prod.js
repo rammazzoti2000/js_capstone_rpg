@@ -1,0 +1,31 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
+const merge = require('webpack-merge');
+// const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const base = require('./base');
+
+/* eslint no-unused-vars: "error" */
+
+module.exports = merge(base, {
+  mode: 'production',
+  output: {
+    filename: 'bundle.min.js',
+  },
+  devtool: false,
+  performance: {
+    maxEntrypointSize: 900000,
+    maxAssetSize: 900000,
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
+});
